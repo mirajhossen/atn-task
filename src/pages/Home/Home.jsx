@@ -8,6 +8,9 @@ const Home = () => {
     <div>
       <CategoryNav />
       <NewsSection />
+      <div className="px-16 py-2.5">
+        <img src="/images/abu-saed-ads.png" alt="abu sayed ads image" />
+      </div>
     </div>
   );
 };
