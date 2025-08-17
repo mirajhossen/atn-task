@@ -1,7 +1,8 @@
-import { Clock } from "lucide-react";
+import { Clock, EllipsisVertical, Play } from "lucide-react";
 import NewsCard from "./NewsCard";
 import PoliticsCard from "./PoliticsCard";
 import FamousNewsList from "./FamousNewsList";
+import NewsTabs from "./NewsTabs";
 
 const News = [
   {
@@ -135,67 +136,92 @@ const NewsSection = () => {
       </div>
 
       {/* right-side */}
-      <div className="w-[40%] flex gap-2.5">
-        <div className="w-[60%] p-2.5 border rounded-md space-y-2.5">
-          {/* single news  */}
-          <div className="">
-            <div className="relative">
-              <img src="/images/trump.png" alt="" />
-              <span className="px-[21px] py-[7px] opacity-70 bg-black text-white absolute top-0 right-0">
-                Politics
-              </span>
-            </div>
-            <h2>ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত</h2>
-            <div className="flex gap-1 items-center">
-              <Clock size={20} className="text-[#868686]" />
-              <span className="text-[#868686] text-sm">১০ মিনিট আগে</span>
-            </div>
-          </div>
 
-          {/* divider  */}
-          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+      <div className="w-[40%]">
+        <div className=" flex gap-2.5">
+          <div className="w-[60%] p-2.5 border rounded-md space-y-2.5">
+            {/* single news  */}
+            <div className="">
+              <div className="relative">
+                <img src="/images/trump.png" alt="" />
+                <span className="px-[21px] py-[7px] opacity-70 bg-black text-white absolute top-0 right-0">
+                  Politics
+                </span>
+              </div>
+              <h2>ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত</h2>
+              <div className="flex gap-1 items-center">
+                <Clock size={20} className="text-[#868686]" />
+                <span className="text-[#868686] text-sm">১০ মিনিট আগে</span>
+              </div>
+            </div>
 
-          {/* multi news  */}
-          <div>
-            {newsList?.map((news, index) => (
-              <div key={index} className="">
-                <div className="grid grid-cols-2 gap-2.5">
-                  <div className="relative">
-                    <img
-                      className="w-full h-[107px]"
-                      src={news?.img}
-                      alt={news?.title}
-                    />
-                    <span className="px-[21px] py-[7px] opacity-70 bg-black text-xs text-white absolute top-0 left-0">
-                      {news?.category}
-                    </span>
-                  </div>
-                  <div className="flex flex-col justify-between">
-                    <h4 className="line-clamp-3">{news?.title}</h4>
-                    <div className="flex gap-1 items-center">
-                      <Clock size={20} className="text-[#868686]" />
-                      <span className="text-[#868686] text-sm">
-                        {news?.time} ঘন্টা আগে
+            {/* divider  */}
+            <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+
+            {/* multi news  */}
+            <div>
+              {newsList?.map((news, index) => (
+                <div key={index} className="">
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div className="relative">
+                      <img
+                        className="w-full h-[107px]"
+                        src={news?.img}
+                        alt={news?.title}
+                      />
+                      <span className="px-[21px] py-[7px] opacity-70 bg-black text-xs text-white absolute top-0 left-0">
+                        {news?.category}
                       </span>
                     </div>
+                    <div className="flex flex-col justify-between">
+                      <h4 className="line-clamp-3">{news?.title}</h4>
+                      <div className="flex gap-1 items-center">
+                        <Clock size={20} className="text-[#868686]" />
+                        <span className="text-[#868686] text-sm">
+                          {news?.time} ঘন্টা আগে
+                        </span>
+                      </div>
+                    </div>
                   </div>
+                  {/* divider  */}
+                  {index !== newsList.length - 1 && (
+                    <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+                  )}
                 </div>
-                {/* divider  */}
-                {index !== newsList.length - 1 && (
-                  <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* advertisement section  */}
+          <div className="p-2.5 w-[40%] border rounded-md">
+            <div className="px-2.5 py-3 bg-[#D9D9D9] h-[200px] flex justify-between">
+              <p className="uppercase text-[10px]">Advertisement</p>
+              <span className="flex gap-2.5">
+                <Play size={15} />
+                <EllipsisVertical size={15} />
+              </span>
+            </div>
+            <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+            <div className="px-2.5 py-3 bg-[#D9D9D9] h-[200px] flex justify-between">
+              <p className="uppercase text-[10px]">Advertisement</p>
+              <span className="flex gap-2.5">
+                <Play size={15} />
+                <EllipsisVertical size={15} />
+              </span>
+            </div>
+            <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+            <div className="px-2.5 py-3 bg-[#D9D9D9] h-[200px] flex justify-between">
+              <p className="uppercase text-[10px]">Advertisement</p>
+              <span className="flex gap-2.5">
+                <Play size={15} />
+                <EllipsisVertical size={15} />
+              </span>
+            </div>
           </div>
         </div>
 
-        <div className="w-[40%]">
-          <div className="bg-[#D9D9D9] h-[212px]"></div>
-          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
-          <div className="bg-[#D9D9D9] h-[212px]"></div>
-          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
-          <div className="bg-[#D9D9D9] h-[212px]"></div>
-        </div>
+        {/* tab  */}
+        <NewsTabs/>
       </div>
     </div>
   );
