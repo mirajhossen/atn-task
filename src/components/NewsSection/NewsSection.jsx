@@ -75,9 +75,33 @@ const PoliticsNews = [
   },
 ];
 
+const newsList = [
+  {
+    id: 1,
+    img: "/images/news-1.png",
+    title: "ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত",
+    time: "১",
+    category: "Politics",
+  },
+  {
+    id: 2,
+    img: "/images/news-2.png",
+    title: "ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত",
+    time: "১",
+    category: "Politics",
+  },
+  {
+    id: 3,
+    img: "/images/news-3.png",
+    title: "ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত",
+    time: "১",
+    category: "Politics",
+  },
+];
+
 const NewsSection = () => {
   return (
-    <div className="flex my-10 ">
+    <div className="px-4 flex my-10 gap-2.5">
       {/* left-side */}
       <div className="w-[60%]">
         <div className="p-2.5  flex gap-2.5 border border-[#D9D9D9] rounded-md">
@@ -111,37 +135,66 @@ const NewsSection = () => {
       </div>
 
       {/* right-side */}
-      <div className=" flex gap-2.5 w-[40%] h-60 ">
-        <div className="h-[627px]">
-          <div className="w-[50%] h-[170px] flex flex-col">
-            <div className="p-2.5 flex flex-col gap-2.5">
-              <img src="/images/card-img-1.png" alt="" />
-              <h1 className="text-[18px] font-medium">
-                ভারতের উন্নতি হজম করতে পারছে না যুক্তরাষ্ট্র
-              </h1>
-
-              <div className=" flex gap-1 ">
-                <span>
-                  <Clock />
-                </span>
-                <span className="text-sm text-[#868686]">১ ঘণ্টা আগে</span>
-              </div>
+      <div className="w-[40%] flex gap-2.5">
+        <div className="w-[60%] p-2.5 border rounded-md space-y-2.5">
+          {/* single news  */}
+          <div className="">
+            <div className="relative">
+              <img src="/images/trump.png" alt="" />
+              <span className="px-[21px] py-[7px] opacity-70 bg-black text-white absolute top-0 right-0">
+                Politics
+              </span>
             </div>
-
-            <div className="grid grid-rows-3 gap-[22px]">
-              {PoliticsNews.map((item) => (
-                <PoliticsCard item={item} />
-              ))}
+            <h2>ইরানের হুমকিতে ট্রাম্পের পইরকল্পিত করিডোর অনিশ্চিত</h2>
+            <div className="flex gap-1 items-center">
+              <Clock size={20} className="text-[#868686]" />
+              <span className="text-[#868686] text-sm">১০ মিনিট আগে</span>
             </div>
           </div>
-          <div className=" p-2.5 flex flex-row gap-2.5">
-            <div className="w-full h-[200px] bg-red-300"></div>
-            <div className="w-full h-[200px] bg-grey-300"></div>
-            <div className="w-full h-[200px] bg-grey-300"></div>
+
+          {/* divider  */}
+          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+
+          {/* multi news  */}
+          <div>
+            {newsList?.map((news, index) => (
+              <div key={index} className="">
+                <div className="grid grid-cols-2 gap-2.5">
+                  <div className="relative">
+                    <img
+                      className="w-full h-[107px]"
+                      src={news?.img}
+                      alt={news?.title}
+                    />
+                    <span className="px-[21px] py-[7px] opacity-70 bg-black text-xs text-white absolute top-0 left-0">
+                      {news?.category}
+                    </span>
+                  </div>
+                  <div className="flex flex-col justify-between">
+                    <h4 className="line-clamp-3">{news?.title}</h4>
+                    <div className="flex gap-1 items-center">
+                      <Clock size={20} className="text-[#868686]" />
+                      <span className="text-[#868686] text-sm">
+                        {news?.time} ঘন্টা আগে
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {/* divider  */}
+                {index !== newsList.length - 1 && (
+                  <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-        <div className="h-[381px]">
-          <FamousNewsList />
+
+        <div className="w-[40%]">
+          <div className="bg-[#D9D9D9] h-[212px]"></div>
+          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+          <div className="bg-[#D9D9D9] h-[212px]"></div>
+          <div className="my-2.5 h-[1px] bg-[#D9D9D9]"></div>
+          <div className="bg-[#D9D9D9] h-[212px]"></div>
         </div>
       </div>
     </div>
