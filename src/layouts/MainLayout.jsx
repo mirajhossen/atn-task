@@ -12,7 +12,7 @@ const MainLayout = () => {
       <Navbar />
       <Outlet />
       <Footer />
-      <FooterBanner />
+      {/* <FooterBanner /> */}
       <Design />
     </div>
   );
